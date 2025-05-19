@@ -1,0 +1,2 @@
+[2025-05-18T14:10:05.584+0000] {scheduler_job_runner.py:1586} WARNING - Marking task instance <TaskInstance: nyc_taxi_pipeline.ingest_data manual__2025-05-18T13:58:25.470926+00:00 [queued]> stuck in queued as failed. If the task instance has available retries, it will be retried.
+[2025-05-18T14:10:06.377+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: nyc_taxi_pipeline.ingest_data manual__2025-05-18T13:58:25.470926+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

@@ -1,0 +1,9 @@
+{
+    "json.schemas": [
+        
+    ]
+}
+
+"python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+}

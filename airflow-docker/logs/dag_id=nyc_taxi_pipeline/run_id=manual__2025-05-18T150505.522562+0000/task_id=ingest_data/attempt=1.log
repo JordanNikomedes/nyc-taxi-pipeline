@@ -1,0 +1,17 @@
+[2025-05-18T15:05:07.025+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nyc_taxi_pipeline.ingest_data manual__2025-05-18T15:05:05.522562+00:00 [queued]>
+[2025-05-18T15:05:07.034+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nyc_taxi_pipeline.ingest_data manual__2025-05-18T15:05:05.522562+00:00 [queued]>
+[2025-05-18T15:05:07.035+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-05-18T15:05:07.051+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_data> on 2025-05-18 15:05:05.522562+00:00
+[2025-05-18T15:05:07.057+0000] {standard_task_runner.py:60} INFO - Started process 193 to run task
+[2025-05-18T15:05:07.060+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'nyc_taxi_pipeline', 'ingest_data', 'manual__2025-05-18T15:05:05.522562+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/nyc_taxi_pipeline.py', '--cfg-path', '/tmp/tmpme2h77s3']
+[2025-05-18T15:05:07.063+0000] {standard_task_runner.py:88} INFO - Job 18: Subtask ingest_data
+[2025-05-18T15:05:07.082+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-05-18T15:05:07.124+0000] {task_command.py:423} INFO - Running <TaskInstance: nyc_taxi_pipeline.ingest_data manual__2025-05-18T15:05:05.522562+00:00 [running]> on host 208ffd3de735
+[2025-05-18T15:05:07.434+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nyc_taxi_pipeline' AIRFLOW_CTX_TASK_ID='ingest_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-18T15:05:05.522562+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-18T15:05:05.522562+00:00'
+[2025-05-18T15:05:07.436+0000] {nyc_taxi_pipeline.py:23} INFO - Starting data ingestion...
+[2025-05-18T15:05:13.240+0000] {ingest.py:31} INFO - File downloaded successfully to: /opt/***/scripts/Data/Raw/data.parquet
+[2025-05-18T15:05:13.243+0000] {nyc_taxi_pipeline.py:31} INFO - Data ingestion complete.
+[2025-05-18T15:05:13.244+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-05-18T15:05:13.261+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=nyc_taxi_pipeline, task_id=ingest_data, execution_date=20250518T150505, start_date=20250518T150507, end_date=20250518T150513
+[2025-05-18T15:05:13.317+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-05-18T15:05:13.357+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,6 @@
+postgres:
+  host: host.docker.internal
+  port: 5432
+  database: nyc_taxi
+  user: postgres
+  password: Jordan963

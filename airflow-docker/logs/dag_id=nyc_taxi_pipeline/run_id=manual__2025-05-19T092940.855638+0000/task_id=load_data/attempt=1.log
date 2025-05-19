@@ -1,0 +1,25 @@
+[2025-05-19T09:30:31.588+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nyc_taxi_pipeline.load_data manual__2025-05-19T09:29:40.855638+00:00 [queued]>
+[2025-05-19T09:30:31.608+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nyc_taxi_pipeline.load_data manual__2025-05-19T09:29:40.855638+00:00 [queued]>
+[2025-05-19T09:30:31.609+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-05-19T09:30:31.634+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): load_data> on 2025-05-19 09:29:40.855638+00:00
+[2025-05-19T09:30:31.642+0000] {standard_task_runner.py:60} INFO - Started process 210 to run task
+[2025-05-19T09:30:31.647+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'nyc_taxi_pipeline', 'load_data', 'manual__2025-05-19T09:29:40.855638+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/nyc_taxi_pipeline.py', '--cfg-path', '/tmp/tmplpvgm6e0']
+[2025-05-19T09:30:31.651+0000] {standard_task_runner.py:88} INFO - Job 40: Subtask load_data
+[2025-05-19T09:30:31.680+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-05-19T09:30:31.743+0000] {task_command.py:423} INFO - Running <TaskInstance: nyc_taxi_pipeline.load_data manual__2025-05-19T09:29:40.855638+00:00 [running]> on host 02ed670443a2
+[2025-05-19T09:30:32.071+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nyc_taxi_pipeline' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T09:29:40.855638+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-19T09:29:40.855638+00:00'
+[2025-05-19T09:30:32.074+0000] {nyc_taxi_pipeline.py:50} INFO - Starting data loading...
+[2025-05-19T09:30:32.088+0000] {load.py:67} ERROR - Failed during chunked parquet upload: read_table() got an unexpected keyword argument 'chunksize'
+Traceback (most recent call last):
+  File "/opt/airflow/scripts/load.py", line 56, in upload_parquet_in_chunks
+    df_iter = pd.read_parquet(parquet_file, chunksize=chunksize)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parquet.py", line 509, in read_parquet
+    return impl.read(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parquet.py", line 227, in read
+    pa_table = self.api.parquet.read_table(
+TypeError: read_table() got an unexpected keyword argument 'chunksize'
+[2025-05-19T09:30:32.094+0000] {nyc_taxi_pipeline.py:69} INFO - Data successfully loaded
+[2025-05-19T09:30:32.095+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-05-19T09:30:32.109+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=nyc_taxi_pipeline, task_id=load_data, execution_date=20250519T092940, start_date=20250519T093031, end_date=20250519T093032
+[2025-05-19T09:30:32.144+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-05-19T09:30:32.168+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

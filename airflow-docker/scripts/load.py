@@ -16,6 +16,17 @@ class Load:
 
     def read_db_credentials(self, yaml_file):
 
+        """This method safely loads the yaml file checking if nothing is missing.
+        
+        Args:
+            yaml_file(YML): takes yaml file holding credentials as a paramenter
+            
+        Return:
+            Returns the credentials within this file
+            
+        Raise:
+            Raises an error if the file fails to open or is not mathcing what is required"""
+
 
         with open(yaml_file, 'r') as file:
             try:
@@ -39,6 +50,14 @@ class Load:
 
 
     def db_engine(self, creds):
+
+        """This function creates the engine to successfully connect to the local database.
+        
+        Args:
+            creds(YML): takes the credentials as a parameter
+            
+        Return:
+            Returns the engine"""
         
         engine = create_engine(
              f"{'postgresql'}+{'psycopg2'}://{creds['user']}"
@@ -49,6 +68,21 @@ class Load:
         return engine
     
     def upload_parquet_in_chunks(self, parquet_file, table_name, engine, chunksize=100_000):
+
+        """This method converts the data to a dataframe, then iterates through each chunk of
+        data converting to sql and moving it to the local database.
+        
+        Args:
+            parquet_file(parquet): takes the data as a parameter
+            table_name(string): sets the table name of the data
+            engine: takes the engine function as parameter
+            chunksize(int): sets each chunksize to 100000mb
+            
+        Return:
+            Returns the data to pgadmin
+            
+        Raise:
+            Raises each chunk uploaded, data successfully loaded or if the data failed to load"""
 
         try:
        
